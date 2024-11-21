@@ -1,0 +1,25 @@
+LINUX TEXT
+
+URL="https://example.com/executables/my_program.sh"
+
+//Destino
+DESTINO="my_program.sh"
+
+//Usando curl
+echo "Descargando el archivo..."
+curl -o $DESTINO $URL
+
+//Desarga exit
+if [ $? -eq 0 ]; then
+    echo "Descarga completada con éxito."
+else
+    echo "Hubo un error al descargar el archivo."
+    exit 1
+fi
+
+/Permisos
+chmod +x $DESTINO
+
+/Exec
+echo "Ejecutando el programa..."
+./$DESTINO
